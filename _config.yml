@@ -1,5 +1,5 @@
-title: My blog
-description: My very nice blog
+title: Carlos Franzreb
+description: Personal blog
 author: "Carlos Franzreb"
 
 theme: minima
@@ -18,10 +18,9 @@ minima:
   date_format: "%Y-%m-%d"
 
 # Minima: custom header links
-header_pages:
-  - _pages/frontpage.md
-  - _pages/about.md
-  - _pages/archive.md
+# header_pages:
+#   - _pages/frontpage.md
+#   - _pages/archive.md
 
 include:
   - _pages
