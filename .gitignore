@@ -5,3 +5,4 @@ _site/
 .vscode
 **/*.swp
 env
+.DS_Store
