@@ -14,7 +14,6 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 {% assign librispeech_id = "1089-134686-0000" %} {# Assuming this ID is fixed for this table #}
 {% assign target_speaker_ids = "0,1,2,3" | split: "," %}
 {% assign initial_target_speaker_id = target_speaker_ids[0] %}
-
 {% assign duration_values = "0,7,10" | split: "," %} {# Corresponds to 'w' in your table, and first part of config in filename #}
 {% assign variation_values = "0,8,32" | split: "," %} {# Corresponds to 'c' in your table, and second part of config in filename #}
 
@@ -23,7 +22,6 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
         border-collapse: collapse;
         width: 80%;
         margin: 20px auto;
-        /* table-layout: fixed; */ /* Optional: if you want fixed column widths */
     }
     th, td {
         border: 1px solid #ddd;
@@ -54,7 +52,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 </style>
 
 <div class="controls-container">
-    <label for="targetSpeakerSelect">Select Target Speaker:</label>
+    <label for="targetSpeakerSelect">Target Speaker:</label>
     <select id="targetSpeakerSelect">
         {% for speaker_id in target_speaker_ids %}
             <option value="{{ speaker_id }}" {% if speaker_id == initial_target_speaker_id %}selected{% endif %}>Speaker {{ speaker_id }}</option>
@@ -65,17 +63,17 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 <table>
     <thead>
         <tr>
-            <th>Config (c \ w)</th> {# Updated label for clarity #}
+            <th></th>
             {% for dur_val in duration_values %}
                 <th>w={{ dur_val }}</th>
             {% endfor %}
         </tr>
     </thead>
     <tbody>
-        {% for var_val in variation_values %} {# This is 'c', the row parameter #}
+        {% for var_val in variation_values %}
             <tr>
                 <td><b>c={{ var_val }}</b></td>
-                {% for dur_val in duration_values %} {# This is 'w', the column parameter #}
+                {% for dur_val in duration_values %}
                     <td class="audio-cell" data-dur="{{ dur_val }}" data-var="{{ var_val }}">
                         <audio controls preload="metadata" style="width:100%;">
                             <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_{{ librispeech_id }}_{{ initial_target_speaker_id }}.flac" type="audio/flac">
@@ -105,7 +103,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
                 const sourceElement = audioElement.querySelector('source');
                 const newSrc = `${releaseUrl}${durVal}-${varVal}_${librispeechId}_${selectedTargetSpeakerId}.flac`;
                 sourceElement.setAttribute('src', newSrc);
-                audioElement.load(); // Crucial: tells the audio element to reload its source
+                audioElement.load();
             });
         });
     });
