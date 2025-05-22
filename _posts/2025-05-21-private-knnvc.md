@@ -26,7 +26,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
     <tbody>
         {% for var_val in variation_values %}
             <tr>
-                <td><b>{{ var_val }} clusters</b></td>
+                <td><b>c={{ var_val }}</b></td>
                 {% for dur_val in duration_values %}
                     <td>
                         <audio controls preload style="width:100%;">
