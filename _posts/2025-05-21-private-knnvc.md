@@ -14,9 +14,9 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
     <source src="https://github.com/carlosfranzreb/carlosfranzreb.github.io/releases/download/v0.1.0/0-0_1089-134686-0000_0.flac" type="audio/mp3">
 </video>
 
-{% set release_url = "https://github.com/carlosfranzreb/carlosfranzreb.github.io/releases/download/v0.1.0/" %}
-{% set duration_values = [0, 7, 10] %}
-{% set variation_values = [0, 8, 32] %}
+{% assign release_url = "https://github.com/carlosfranzreb/carlosfranzreb.github.io/releases/download/v0.1.0/" %}
+{% assign duration_values = "0,7,10" | split: "," %}
+{% assign variation_values = "0,8,32" | split: "," %}
 
 <table>
     <thead>
