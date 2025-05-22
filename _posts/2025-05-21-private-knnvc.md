@@ -41,7 +41,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
                 <td><b>{{ var_val }} clusters</b></td>
                 {% for dur_val in duration_values %}
                     <td>
-                        <audio class="audio_player" preload>
+                        <audio class="audio_player" controls preload>
                             <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_1089-134686-0000_0.flac" type="audio/flac">
                         </audio>
                     </td>
