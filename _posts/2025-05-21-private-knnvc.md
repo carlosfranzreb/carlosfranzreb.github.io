@@ -10,26 +10,14 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 
 ## Examples
 
-<video controls="" name="0-0_1089-134686-0000_0">
-    <source src="https://github.com/carlosfranzreb/carlosfranzreb.github.io/releases/download/v0.1.0/0-0_1089-134686-0000_0.flac" type="audio/mp3">
-</video>
-
 {% assign release_url = "https://github.com/carlosfranzreb/carlosfranzreb.github.io/releases/download/v0.1.0/" %}
 {% assign duration_values = "0,7,10" | split: "," %}
 {% assign variation_values = "0,8,32" | split: "," %}
 
-<style>
-
-    .audio_player {
-        width: 100%;
-    }
-
-</style>
-
 <table>
     <thead>
         <tr>
-            <th>Duration weight</th>
+            <th></th>
             {% for dur_val in duration_values %}
                 <th>w={{ dur_val }}</th>
             {% endfor %}
@@ -41,7 +29,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
                 <td><b>{{ var_val }} clusters</b></td>
                 {% for dur_val in duration_values %}
                     <td>
-                        <audio class="audio_player" controls preload>
+                        <audio controls preload>
                             <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_1089-134686-0000_0.flac" type="audio/flac">
                         </audio>
                     </td>
