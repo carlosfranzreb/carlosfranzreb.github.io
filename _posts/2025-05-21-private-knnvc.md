@@ -18,22 +18,30 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 {% assign duration_values = "0,7,10" | split: "," %}
 {% assign variation_values = "0,8,32" | split: "," %}
 
+<style>
+
+    .audio_player {
+        width: 100%;
+    }
+
+</style>
+
 <table>
     <thead>
         <tr>
-            <th>Duration \\ Variation</th>
+            <th>Duration weight</th>
             {% for dur_val in duration_values %}
-                <th>{{ dur_val }}</th>
+                <th>w={{ dur_val }}</th>
             {% endfor %}
         </tr>
     </thead>
     <tbody>
         {% for var_val in variation_values %}
             <tr>
-                <td><b>{{ p1_val }}</b></td>
+                <td><b>{{ var_val }} clusters</b></td>
                 {% for dur_val in duration_values %}
                     <td>
-                        <audio controls preload>
+                        <audio class="audio_player" preload>
                             <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_1089-134686-0000_0.flac" type="audio/flac">
                         </audio>
                     </td>
