@@ -34,7 +34,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
                 {% for dur_val in duration_values %}
                     <td>
                         <video controls>
-                            <source src="{{ release_url }}{{ var_val }}-{{dur_val}}_1089-134686-0000_0.flac" type="audio/flac">
+                            <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_1089-134686-0000_0.flac" type="audio/flac">
                         </video>
                     </td>
                 {% endfor %}
