@@ -15,6 +15,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 {% assign target_speaker_ids = "0,1,2,3" | split: "," %}
 {% assign duration_values = "0,7,10" | split: "," %}
 {% assign variation_values = "0,8,32" | split: "," %}
+{% assign valid_combinations = "0-0,0-8,7-32,10-0,10-8" | split: "," %}
 
 <style>
     table {
@@ -31,8 +32,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
         background-color: #f2f2f2;
     }
     audio {
-        width: 100%; /* Your existing style */
-        min-width: 180px; /* Ensure player controls are visible */
+        min-width: 180px;
     }
     .controls-container {
         margin: 20px auto;
@@ -45,7 +45,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
         font-weight: bold;
     }
     .controls-container select {
-        padding: 5px;
+        padding: 10px;
         border-radius: 4px;
     }
 </style>
@@ -80,11 +80,14 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
             <tr>
                 <td><b>c={{ var_val }}</b></td>
                 {% for dur_val in duration_values %}
-                    <td class="audio-cell" data-dur="{{ dur_val }}" data-var="{{ var_val }}">
-                        <audio controls preload="metadata" style="width:100%;">
-                            <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_{{ audio_files[0] }}_{{ target_speaker_ids[0] }}.flac" type="audio/flac">
-                            Your browser does not support the audio element.
-                        </audio>
+                    <td class="audio-cell">
+                        {% assign config = dur_val ~ "-" ~ var_val %}
+                        {% if config in valid_combinations %}
+    </audio>               <audio controls preload="metadata" style="width:100%;">
+                                <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_{{ audio_files[0] }}_{{ target_speaker_ids[0] }}.flac" type="audio/flac">
+                                Your browser does not support the audio element.
+                            </audio>
+                        {% endif %}
                     </td>
                 {% endfor %}
             </tr>
@@ -108,6 +111,9 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
                 const durVal = cell.dataset.dur;
                 const varVal = cell.dataset.var;
                 const audioElement = cell.querySelector('audio');
+                if (!audioElement)
+                    return;
+
                 const sourceElement = audioElement.querySelector('source');
                 const newSrc = `${releaseUrl}${durVal}-${varVal}_${audioFile}_${targetSpeaker}.flac`;
                 sourceElement.setAttribute('src', newSrc);
