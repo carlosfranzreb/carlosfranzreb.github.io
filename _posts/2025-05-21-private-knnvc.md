@@ -104,7 +104,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 
         function updateCells() {
             const audioFile = audioFileSelect.value;
-            const selectedTargetSpeakerId = audioFileSelect.value;
+            const selectedTargetSpeakerId = targetSpeakerSelect.value;
 
             audioCells.forEach(cell => {
                 const durVal = cell.dataset.dur;
@@ -118,6 +118,6 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
         }
 
         targetSpeakerSelect.addEventListener('change', updateCells());
-        audioFileSelect.addEventListener('change', updateCells())
+        audioFileSelect.addEventListener('change', updateCells());
     });
 </script>
