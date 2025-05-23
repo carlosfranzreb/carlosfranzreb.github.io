@@ -83,7 +83,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
                     <td class="audio-cell">
                         {% assign config = dur_val ~ "-" ~ var_val %}
                         {% if config in valid_combinations %}
-                            <audio controls preload="metadata" style="width:100%;">
+                            <audio controls preload="metadata">
                                 <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_{{ audio_files[0] }}_{{ target_speaker_ids[0] }}.flac" type="audio/flac">
                                 Your browser does not support the audio element.
                             </audio>
