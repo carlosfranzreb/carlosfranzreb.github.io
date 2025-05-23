@@ -12,9 +12,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 
 {% assign release_url = "https://github.com/carlosfranzreb/carlosfranzreb.github.io/releases/download/v0.1.0/" %}
 {% assign audio_files = "1089-134686-0000,1580-141083-0000,1284-1180-0000,121-121726-0000" | split: "," %}
-{% assign initial_audio_file = audio_files[0] %}
 {% assign target_speaker_ids = "0,1,2,3" | split: "," %}
-{% assign initial_target_speaker_id = target_speaker_ids[0] %}
 {% assign duration_values = "0,7,10" | split: "," %}
 {% assign variation_values = "0,8,32" | split: "," %}
 
@@ -56,14 +54,14 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
     <label for="targetSpeakerSelect">Target Speaker:</label>
     <select id="targetSpeakerSelect">
         {% for speaker_id in target_speaker_ids %}
-            <option value="{{ speaker_id }}" {% if speaker_id == initial_target_speaker_id %}selected{% endif %}>Speaker {{ speaker_id }}</option>
+            <option value="{{ speaker_id }}" {% if speaker_id == target_speaker_ids[0] %}selected{% endif %}>Speaker {{ speaker_id }}</option>
         {% endfor %}
     </select>
 
     <label for="audioFileSelect">Audio file:</label>
     <select id="audioFileSelect">
         {% for audio_file in audio_files %}
-            <option value="{{ audio_file }}" {% if audio_file == initial_audio_file %}selected{% endif %}>{{ audio_file }}</option>
+            <option value="{{ audio_file }}" {% if audio_file == audio_files[0] %}selected{% endif %}>{{ audio_file }}</option>
         {% endfor %}
     </select>
 </div>
@@ -84,7 +82,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
                 {% for dur_val in duration_values %}
                     <td class="audio-cell" data-dur="{{ dur_val }}" data-var="{{ var_val }}">
                         <audio controls preload="metadata" style="width:100%;">
-                            <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_{{ initial_audio_file }}_{{ initial_target_speaker_id }}.flac" type="audio/flac">
+                            <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_{{ audio_files[0] }}_{{ target_speaker_ids[0] }}.flac" type="audio/flac">
                             Your browser does not support the audio element.
                         </audio>
                     </td>
@@ -104,20 +102,20 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 
         function updateCells() {
             const audioFile = audioFileSelect.value;
-            const selectedTargetSpeakerId = targetSpeakerSelect.value;
+            const targetSpeaker = targetSpeakerSelect.value;
 
             audioCells.forEach(cell => {
                 const durVal = cell.dataset.dur;
                 const varVal = cell.dataset.var;
                 const audioElement = cell.querySelector('audio');
                 const sourceElement = audioElement.querySelector('source');
-                const newSrc = `${releaseUrl}${durVal}-${varVal}_${audioFile}_${selectedTargetSpeakerId}.flac`;
+                const newSrc = `${releaseUrl}${durVal}-${varVal}_${audioFile}_${targetSpeaker}.flac`;
                 sourceElement.setAttribute('src', newSrc);
                 audioElement.load();
             });
         }
 
-        targetSpeakerSelect.addEventListener('change', updateCells());
-        audioFileSelect.addEventListener('change', updateCells());
+        targetSpeakerSelect.addEventListener('change', updateCells);
+        audioFileSelect.addEventListener('change', updateCells);
     });
 </script>
