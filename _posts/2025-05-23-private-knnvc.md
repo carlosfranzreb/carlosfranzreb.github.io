@@ -8,6 +8,11 @@ Private kNN-VC is an anonymizer for speech.
 Given a speech sample and a target speaker, it outputs speech that preserves the content of the input speech but sounds like the target speaker.
 To enhance privacy, the duration and variation of the phones are anonymized, as they contain speaker information.
 
+## Links
+
+- [GitHub repository](https://github.com/carlosfranzreb/private_knnvc)
+- [Pre-print]()
+
 ## Examples
 
 Phone variation is restricted by clustering the target features.
