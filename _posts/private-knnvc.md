@@ -1,6 +1,6 @@
 ---
 title: "Private kNN-VC"
-date: 2020-03-18
+date: 2025-05-23
 layout: post
 ---
 
@@ -81,7 +81,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
             <tr>
                 <td><b>c={{ var_val }}</b></td>
                 {% for dur_val in duration_values %}
-                    <td class="audio-cell">
+                    <td class="audio-cell" data-dur="{{ dur_val }}" data-var="{{ var_val }}">
                         {% capture config %}{{ dur_val }}-{{ var_val }}{% endcapture %}
                         {% if valid_combinations contains config %}
                             <audio controls preload="metadata">
@@ -102,7 +102,6 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
         const targetSpeakerSelect = document.getElementById('targetSpeakerSelect');
         const audioCells = document.querySelectorAll('td.audio-cell[data-dur][data-var]');
         const releaseUrl = "{{ release_url }}";
-        const librispeechId = "{{ librispeech_id }}";
 
         function updateCells() {
             const audioFile = audioFileSelect.value;
