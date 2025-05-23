@@ -113,7 +113,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
                 const varVal = cell.dataset.var;
                 const audioElement = cell.querySelector('audio');
                 if (!audioElement)
-                    continue;
+                    return;
 
                 const sourceElement = audioElement.querySelector('source');
                 const newSrc = `${releaseUrl}${durVal}-${varVal}_${audioFile}_${targetSpeaker}.flac`;
