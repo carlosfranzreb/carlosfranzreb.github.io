@@ -10,6 +10,16 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 
 ## Examples
 
+Phone variation is restricted by clustering the target features.
+In the table below, each row represents a different number of clusters.
+More clusters mean that there are more available features for the kNN conversion, i.e. more variability.
+The resulting audio sounds more expressive.
+0 clusters means that no clustering was performed, i.e. all target features of each phone are candidates.
+
+Phone duration is anonymized by interpolating the actual durations with a different set of phone durations predicted by a model that was developed for text-to-speech.
+Each column in the table represents a different degree of interpolation.
+w=0 means that durations were not anonymized; w=7 means that the predicted durations were multiplied with 0.7 and added with the actual durations, which were multiplied with 0.3; w=10 means that the predicted durations were used.
+
 {% assign release_url = "https://github.com/carlosfranzreb/carlosfranzreb.github.io/releases/download/v0.1.0/" %}
 {% assign audio_files = "1089-134686-0000,1580-141083-0000,1284-1180-0000,121-121726-0000" | split: "," %}
 {% assign target_speaker_ids = "0,1,2,3" | split: "," %}
