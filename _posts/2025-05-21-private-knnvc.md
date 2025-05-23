@@ -81,7 +81,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
                 <td><b>c={{ var_val }}</b></td>
                 {% for dur_val in duration_values %}
                     <td class="audio-cell">
-                        {% assign config = dur_val ~ "-" ~ var_val %}
+                        {% capture config %}{{ dur_val }}-{{ var_val }}{% endcapture %}
                         {% if config in valid_combinations %}
                             <audio controls preload="metadata">
                                 <source src="{{ release_url }}{{ dur_val }}-{{ var_val }}_{{ audio_files[0] }}_{{ target_speaker_ids[0] }}.flac" type="audio/flac">
