@@ -32,6 +32,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
         background-color: #f2f2f2;
     }
     audio {
+        width: 100%;
         min-width: 180px;
     }
     .controls-container {
@@ -112,7 +113,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
                 const varVal = cell.dataset.var;
                 const audioElement = cell.querySelector('audio');
                 if (!audioElement)
-                    return;
+                    continue;
 
                 const sourceElement = audioElement.querySelector('source');
                 const newSrc = `${releaseUrl}${durVal}-${varVal}_${audioFile}_${targetSpeaker}.flac`;
