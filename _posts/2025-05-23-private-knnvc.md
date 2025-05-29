@@ -11,7 +11,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 ## Links
 
 - [GitHub repository](https://github.com/carlosfranzreb/private_knnvc)
-- [Pre-print]()
+- [Pre-print](https://arxiv.org/pdf/2505.17584)
 
 ## Examples
 
