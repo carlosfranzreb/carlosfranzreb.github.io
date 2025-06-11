@@ -82,6 +82,14 @@ w=0 means that durations were not anonymized; w=7 means that the predicted durat
     </select>
 </div>
 
+<div class="original-audio" style="text-align: center; margin: 20px auto;">
+    <p><strong>Original speech:</strong></p>
+    <audio controls preload="metadata" style="width: 80%; min-width: 180px;">
+        <source src="{{ release_url }}inal_{{ audio_files[0] }}.flac" type="audio/flac">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
 <table>
     <thead>
         <tr>
