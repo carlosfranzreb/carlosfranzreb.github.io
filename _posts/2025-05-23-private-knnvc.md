@@ -74,7 +74,7 @@ w=0 means that durations were not anonymized; w=7 means that the predicted durat
         {% endfor %}
     </select>
 
-    <br>
+    <br><br>
 
     <label for="audioFileSelect">Audio file:</label>
     <select id="audioFileSelect">
