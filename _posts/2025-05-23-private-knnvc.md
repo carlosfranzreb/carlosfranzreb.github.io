@@ -66,6 +66,10 @@ w=0 means that durations were not anonymized; w=7 means that the predicted durat
     }
 </style>
 
+### Audio Selection Controls
+
+Choose an audio file and the target speaker that should be used for anonymizing it.
+
 <div class="controls-container">
     <label for="targetSpeakerSelect">Target Speaker:</label>
     <select id="targetSpeakerSelect">
