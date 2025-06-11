@@ -15,7 +15,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 
 ## How it works
 
-![Diagram of private kNN-VC](https://github.com/carlosfranzreb/carlosfranzreb.github.io/releases/tag/v0.1.0model.png)
+![Diagram of private kNN-VC](https://github.com/carlosfranzreb/carlosfranzreb.github.io/releases/download/v0.1.0/model.png)
 
 **kNN-VC** is a voice converter based on [WavLM](https://arxiv.org/abs/2110.13900), a speech language model.
 It converts each source feature to the average of the closest target features according to cosine similarity.
