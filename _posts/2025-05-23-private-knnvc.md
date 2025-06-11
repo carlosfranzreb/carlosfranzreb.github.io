@@ -13,15 +13,20 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 - [GitHub repository](https://github.com/carlosfranzreb/private_knnvc)
 - [Pre-print](https://arxiv.org/pdf/2505.17584)
 
-## Examples
+## How it works
 
-Phone variation is restricted by clustering the target features.
+<b>kNN-VC</b> is a voice converter based on [WavLM](https://arxiv.org/abs/2110.13900), a speech language model.
+It converts each source feature to the average of the closest target features according to cosine similarity.
+You can read more about kNN-VC [here](https://bshall.github.io/knn-vc/).
+We adapt it for speaker anonymization as follows.
+
+<b>Phone variation</b> is restricted by clustering the target features.
 In the table below, each row represents a different number of clusters.
 More clusters mean that there are more available features for the kNN conversion, i.e. more variability.
 The resulting audio sounds more expressive.
 0 clusters means that no clustering was performed, i.e. all target features of each phone are candidates.
 
-Phone duration is anonymized by interpolating the actual durations with a different set of phone durations predicted by a model that was developed for text-to-speech.
+<b>Phone duration</b> is anonymized by interpolating the actual durations with a different set of phone durations predicted by a model that was developed for text-to-speech.
 Each column in the table represents a different degree of interpolation.
 w=0 means that durations were not anonymized; w=7 means that the predicted durations were multiplied with 0.7 and added with the actual durations, which were multiplied with 0.3; w=10 means that the predicted durations were used.
 
@@ -66,7 +71,7 @@ w=0 means that durations were not anonymized; w=7 means that the predicted durat
     }
 </style>
 
-### Audio Selection Controls
+### Choose a sample and a target
 
 Choose an audio file and the target speaker that should be used for anonymizing it.
 
