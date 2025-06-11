@@ -82,13 +82,16 @@ w=0 means that durations were not anonymized; w=7 means that the predicted durat
     </select>
 </div>
 
+### Original speech
+
 <div class="original-audio" style="text-align: center; margin: 20px auto;">
-    <p><strong>Original speech:</strong></p>
     <audio controls preload="metadata" style="width: 80%; min-width: 180px;">
         <source src="{{ release_url }}inal_{{ audio_files[0] }}.flac" type="audio/flac">
         Your browser does not support the audio element.
     </audio>
 </div>
+
+### Anonymized speech
 
 <table>
     <thead>
@@ -126,6 +129,9 @@ w=0 means that durations were not anonymized; w=7 means that the predicted durat
         const audioCells = document.querySelectorAll('td.audio-cell[data-dur][data-var]');
         const releaseUrl = "{{ release_url }}";
 
+        const originalAudioElement = document.querySelector('.original-audio audio');
+        const originalSourceElement = originalAudioElement.querySelector('source');
+
         function updateCells() {
             const audioFile = audioFileSelect.value;
             const targetSpeaker = targetSpeakerSelect.value;
@@ -144,7 +150,15 @@ w=0 means that durations were not anonymized; w=7 means that the predicted durat
             });
         }
 
+        function updateOriginal() {
+            const audioFile = audioFileSelect.value;
+            const newOriginalSrc = `${releaseUrl}inal_${audioFile}.flac`;
+            originalSourceElement.setAttribute('src', newOriginalSrc);
+            originalAudioElement.load();
+        }
+
         targetSpeakerSelect.addEventListener('change', updateCells);
         audioFileSelect.addEventListener('change', updateCells);
+        audioFileSelect.addEventListener('change', updateOriginal);
     });
 </script>
