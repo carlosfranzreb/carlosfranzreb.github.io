@@ -6,7 +6,7 @@ theme: minima
 
 base_url: /
 repository: carlosfranzreb/carlosfranzreb.github.io
-permalink: /:title/
+permalink: /:title
 
 # Minima social links
 email: carlos.franzreb@dfki.de
