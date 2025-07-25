@@ -28,7 +28,7 @@ More clusters mean that there are more available features for the kNN conversion
 The resulting audio sounds more expressive.
 0 clusters means that no clustering was performed, i.e. all target features of each phone are candidates.
 
-**Phone duration** is anonymized by interpolating the actual durations with a different set of phone durations predicted by a model that was developed for text-to-speech.
+**Phone durations** are anonymized by interpolating the actual durations with a different set of phone durations predicted by a model that was developed for text-to-speech.
 Each column in the table represents a different degree of interpolation.
 w=0 means that durations were not anonymized; w=7 means that the predicted durations were multiplied with 0.7 and added with the actual durations, which were multiplied with 0.3; w=10 means that the predicted durations were used.
 
