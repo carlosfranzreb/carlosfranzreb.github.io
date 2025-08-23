@@ -12,6 +12,7 @@ To enhance privacy, the duration and variation of the phones are anonymized, as 
 
 - [GitHub repository](https://github.com/carlosfranzreb/private_knnvc)
 - [Paper](https://www.isca-archive.org/interspeech_2025/franzreb25_interspeech.html)
+- [Slides](https://docs.google.com/presentation/d/1UUQyvETohDOJJTS1frNC2EdtpJys7KjYkWXQMdNo_EI/edit?usp=sharing)
 
 ## How it works
 
