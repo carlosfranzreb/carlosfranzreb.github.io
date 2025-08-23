@@ -212,10 +212,14 @@ For example, you can try out ASR-BN, which doesn't have any additional dependenc
 To run ASR-BN, copy the content of the data config (`spane/config/datasets/librispeech.yaml`) onto the experiment config, as we need to change the target datafile, and change the following config variables
 
 1. Set `pipeline_cfg` to `spane/spkanon_models/asrbn/config.yaml`.
-2. Set `data.datasets.targets` to `spane/data/libritts/tts-train-clean-100.txt`.
+2. Set `data.datasets.targets` to `spane/data/librispeech/ls-train-clean-100_asrbn.txt`.
 
 Then you can run it like before with
 
 ```bash
 python spane/run.py spane/config/config.yaml
 ```
+
+Note that ASR-BN actually uses LibriTTS train-clean-100 for the target speakers.
+ASR-BN is already trained with those target speakers, so the datafile only serves for the target selection algorithm.
+We should change the datafile here to avoid confusion.
