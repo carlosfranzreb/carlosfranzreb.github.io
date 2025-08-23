@@ -121,16 +121,16 @@ The results can be found in the folder `asv-cos/semi-informed`.
 The training log of the recognizer (`train/spkid/train_log.txt`) shows how the training went:
 
 ```log
-epoch: 1, lr: 2.46e-05, tgt_weight: 0.00e+00 - train loss: 12.36 - valid loss: 11.60, valid error_rate_src: 9.98e-01, valid error_rate_tgt: 9.72e-01
-epoch: 2, lr: 4.81e-05, tgt_weight: 0.00e+00 - train loss: 11.46 - valid loss: 11.38, valid error_rate_src: 9.96e-01, valid error_rate_tgt: 9.31e-01
-epoch: 3, lr: 7.17e-05, tgt_weight: 0.00e+00 - train loss: 11.16 - valid loss: 11.06, valid error_rate_src: 9.93e-01, valid error_rate_tgt: 8.05e-01
-epoch: 4, lr: 9.53e-05, tgt_weight: 0.00e+00 - train loss: 10.63 - valid loss: 10.48, valid error_rate_src: 9.81e-01, valid error_rate_tgt: 5.61e-01
-epoch: 5, lr: 1.19e-04, tgt_weight: 0.00e+00 - train loss: 9.87 - valid loss: 9.75, valid error_rate_src: 9.67e-01, valid error_rate_tgt: 2.76e-01
-epoch: 6, lr: 1.42e-04, tgt_weight: 0.00e+00 - train loss: 8.99 - valid loss: 9.07, valid error_rate_src: 9.53e-01, valid error_rate_tgt: 1.38e-01
-epoch: 7, lr: 1.66e-04, tgt_weight: 0.00e+00 - train loss: 8.17 - valid loss: 8.48, valid error_rate_src: 9.40e-01, valid error_rate_tgt: 7.16e-02
-epoch: 8, lr: 1.90e-04, tgt_weight: 0.00e+00 - train loss: 7.55 - valid loss: 8.09, valid error_rate_src: 9.26e-01, valid error_rate_tgt: 4.38e-02
-epoch: 9, lr: 2.13e-04, tgt_weight: 0.00e+00 - train loss: 7.11 - valid loss: 7.90, valid error_rate_src: 9.15e-01, valid error_rate_tgt: 3.96e-02
-epoch: 10, lr: 2.37e-04, tgt_weight: 0.00e+00 - train loss: 6.82 - valid loss: 7.87, valid error_rate_src: 9.06e-01, valid error_rate_tgt: 5.01e-02
+epoch: 1, lr: 2.46e-05, tgt_weight: 0.00e+00 - train loss: 12.22 - valid loss: 11.58, valid error_rate_src: 9.97e-01, valid error_rate_tgt: 9.71e-01
+epoch: 2, lr: 4.81e-05, tgt_weight: 0.00e+00 - train loss: 11.45 - valid loss: 11.39, valid error_rate_src: 9.95e-01, valid error_rate_tgt: 9.24e-01
+epoch: 3, lr: 7.17e-05, tgt_weight: 0.00e+00 - train loss: 11.16 - valid loss: 11.07, valid error_rate_src: 9.92e-01, valid error_rate_tgt: 8.13e-01
+epoch: 4, lr: 9.53e-05, tgt_weight: 0.00e+00 - train loss: 10.62 - valid loss: 10.40, valid error_rate_src: 9.80e-01, valid error_rate_tgt: 5.12e-01
+epoch: 5, lr: 1.19e-04, tgt_weight: 0.00e+00 - train loss: 9.82 - valid loss: 9.67, valid error_rate_src: 9.68e-01, valid error_rate_tgt: 2.50e-01
+epoch: 6, lr: 1.42e-04, tgt_weight: 0.00e+00 - train loss: 8.92 - valid loss: 8.92, valid error_rate_src: 9.52e-01, valid error_rate_tgt: 1.18e-01
+epoch: 7, lr: 1.66e-04, tgt_weight: 0.00e+00 - train loss: 8.11 - valid loss: 8.34, valid error_rate_src: 9.37e-01, valid error_rate_tgt: 5.90e-02
+epoch: 8, lr: 1.90e-04, tgt_weight: 0.00e+00 - train loss: 7.48 - valid loss: 8.01, valid error_rate_src: 9.25e-01, valid error_rate_tgt: 3.94e-02
+epoch: 9, lr: 2.13e-04, tgt_weight: 0.00e+00 - train loss: 7.05 - valid loss: 7.78, valid error_rate_src: 9.13e-01, valid error_rate_tgt: 3.23e-02
+epoch: 10, lr: 2.37e-04, tgt_weight: 0.00e+00 - train loss: 6.76 - valid loss: 7.77, valid error_rate_src: 9.05e-01, valid error_rate_tgt: 4.04e-02
 ```
 
 For each epoch you can see:
@@ -140,17 +140,17 @@ For each epoch you can see:
 - The train and validation losses. 10% of each speaker's utterances are used for validation.
 - The error rates for the source and target speakers on the validation set.
 
-You can see that the recognizer's output encodes a lot of information about the target speakers (5% in the last epoch), although it is not informed about targets in any way.
+You can see that the recognizer's output encodes a lot of information about the target speakers (4% in the last epoch), although it is not informed about targets in any way.
 In this [pre-print](https://www.arxiv.org/pdf/2508.09803), we train the recognizer adversarially with the target classifier to remove this information.
 The target weight is used to determine the influence of the target classifier in the recognizer's training.
 You can read more about this in the [corresponding release](https://github.com/carlosfranzreb/spane/releases/tag/paper_results_2).
 
-The final validation error rate for the source speakers, which is what we ultimately care about, is 90.6%, meaning that we could protect their identity pretty well.
+The final validation error rate for the source speakers, which is what we ultimately care about, is 90.5%, meaning that we could protect their identity pretty well.
 The evaluation is performed with unseen speakers, measuring the generalizability of the trained recognizer.
 The results are in the folder `asv-cos/semi-informed/results`.
 Here, you can find the equal error rate (EER) for the whole dataset under `eer.txt`.
 The number of pairs should be 31,640 as we have 791 trial utterances and 40 enrollment speakers.
-I get an EER of 32.4%; keep in mind that these values vary with a standard deviation of 0.5%, so it is best if you run the experiment several times to make sure your results are reliable.
+I get an EER of 20.2%; keep in mind that these values vary with a standard deviation of 0.5%, so it is best if you run the experiment several times to make sure your results are reliable.
 
 ### Utility evaluation
 
