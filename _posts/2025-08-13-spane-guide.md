@@ -209,7 +209,7 @@ Note that the `_cfg` suffixes are our way of defining paths to subconfigs, which
 The repository `spkanon_models`, which we cloned to run private kNN-VC, comprises other anonymizers.
 For example, you can try out ASR-BN, which doesn't have any additional dependencies, and you don't have to download the weights manually.
 
-To run ASR-BN, change the following config variables
+To run ASR-BN, copy the content of the data config (`spane/config/datasets/librispeech.yaml`) onto the experiment config, as we need to change the target datafile, and change the following config variables
 
 1. Set `pipeline_cfg` to `spane/spkanon_models/asrbn/config.yaml`.
 2. Set `data.datasets.targets` to `spane/data/libritts/tts-train-clean-100.txt`.
