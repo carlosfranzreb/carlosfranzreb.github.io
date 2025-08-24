@@ -97,9 +97,11 @@ Once the experiment finishes, you can also check how long each step took in the 
 1. Computing target features: 10 min.
 2. Anonymizing evaluation dataset: 3 min.
 3. Privacy evaluation:
-  a. Anonymizing training dataset: 1 hour and 42 min.
-  b. Training the speaker recognizer: 2 hours and 7 min.
-  c. Evaluation: 8 min.
+
+    a. Anonymizing training dataset: 1 hour and 42 min.\
+    b. Training the speaker recognizer: 2 hours and 7 min.\
+    c. Evaluation: 8 min.
+
 4. Intelligibility evaluation (whisper-small): 7 min.
 5. Intelligibility evaluation (whisper-large): 27 min.
 6. Naturalness evaluation: 5 min.
