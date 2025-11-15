@@ -9,7 +9,7 @@ This study investigates how the configuration of the Librispeech data used to ev
 ## Links
 
 - [GitHub repository](https://github.com/carlosfranzreb/spane) - the results can be found as [a release](https://github.com/carlosfranzreb/spane/releases/tag/paper_results)
-- [Paper](https://www.isca-archive.org/spsc_2025/franzreb25_spsc.pdf) (will be uploaded soon)
+- [Paper](https://www.isca-archive.org/spsc_2025/franzreb25_spsc.pdf)
 
 ## Insights
 
