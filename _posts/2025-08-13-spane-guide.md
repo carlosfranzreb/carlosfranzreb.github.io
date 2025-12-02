@@ -77,6 +77,8 @@ bash spane/spkanon_models/build/knnvc_private.sh
 Before running the experiment, you need to change the root folder in the data configuration (file `./spane/config/datasets/config.yaml`).
 The root folder is the path to the folder where you store your datasets.
 It will be used to replace the `{root}` placeholders in the datafiles.
+For this first experiment, you will require the Librispeech datasets `test-clean` and `train-clean-360`.
+Here is a [link to download Librispeech](https://www.openslr.org/12).
 
 Once that's done, you can run the experiment with the following command:
 
