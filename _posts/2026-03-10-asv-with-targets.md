@@ -47,7 +47,7 @@ Our approach with adversarial learning is not able to force the recognizer to ig
 Increasing the size and weight of the target classifier, to make it more foolproof, does not solve this issue.
 The mutual information between the two tasks is too strong; an adversarial approach is not enough to discourage the recognizer from exploiting the TSA.
 
-<img src="./assets/imgs/spk-level-eers.png" width="400px">
+<img src="./assets/images/spk-level-eers.png" width="400px">
 
 ## Conclusion
 
