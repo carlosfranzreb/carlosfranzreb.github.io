@@ -20,6 +20,18 @@ The similarity among speakers is more important than the amount
 Experiments with other datasets should shed more light on this topic.
 
 Regarding the **evaluation runtime**, we look at different strategies for reducing the size of the training data.
-Anonymizing the training data and training the speaker recognizer with it takes up most of the evaluation runtime.
+Anonymizing the training data and training the speaker recognizer with it takes up most of the evaluation runtime (more than 90% usually).
+Finding a more efficient training regime for the privacy evaluation would therefore be extremely helpful.
 According to our results, 20% of the training data can be removed with a max. EER increase of 1.4%
-Even more can be removed for development efforts
+Even more can be removed for development efforts, as the differences between anonymizers remain.
+We experimented with different selection strategies based on the original speaker embeddings, but the anonymization does not preserve the relationships between utterances.
+This resulted in different anonymizers benefitting from different strategies, which makes the evaluation somewhat unfair.
+
+I think that an iterative training regime such as the following could yield better performance:
+
+1. Anonymize a subset of the training data.
+2. Train the speaker recognizer.
+3. Anonymize more data for the speakers whose validation accuracy was lowest.
+4. Go back to step 2.
+
+This would address how anonymizers alter the data distribution, as each anonymizer would have its own training data.
