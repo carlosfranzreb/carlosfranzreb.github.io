@@ -145,9 +145,8 @@ For each epoch you can see:
 - The error rates for the source and target speakers on the validation set.
 
 You can see that the recognizer's output encodes a lot of information about the target speakers (4% in the last epoch), although it is not informed about targets in any way.
-In this [pre-print](https://www.arxiv.org/pdf/2508.09803), we train the recognizer adversarially with the target classifier to remove this information.
+In [this paper](https://carlosfranzreb.github.io/asv-with-targets.html), we train the recognizer adversarially with the target classifier to remove this information.
 The target weight is used to determine the influence of the target classifier in the recognizer's training.
-You can read more about this in the [corresponding release](https://github.com/carlosfranzreb/spane/releases/tag/paper_results_2).
 
 The final validation error rate for the source speakers, which is what we ultimately care about, is 90.5%, meaning that we could protect their identity pretty well.
 The evaluation is performed with unseen speakers, measuring the generalizability of the trained recognizer.
