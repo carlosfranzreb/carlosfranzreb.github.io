@@ -37,7 +37,7 @@ To steer the recognizer towards the source speaker, for the third experiment we 
 The results show that adversarial learning removes target information from the recognizer, improving the evaluation’s outcome for same-gender TSA.
 We also run this experiment for [ASR-BN](https://github.com/deep-privacy/SA-toolkit), with similar results, and for [kNN-VC](https://github.com/bshall/knn-vc), for which it is not as effective, but because kNN-VC is not confused by targets in the first place, as shown by the validation error rate on the target speakers.
 
-## Extra
+## Speaker-level TSA
 
 Since submitting the paper, I ran an additional experiment with the speaker-level TSA.
 This TSA is more challenging than the same-gender TSA, because the link between sources and targets is stronger ([Panariello et al](https://www.isca-archive.org/spsc_2025/panariello25_spsc.html)).
@@ -47,10 +47,13 @@ Our approach with adversarial learning is not able to force the recognizer to ig
 Increasing the size and weight of the target classifier, to make it more foolproof, does not solve this issue.
 The mutual information between the two tasks is too strong; an adversarial approach is not enough to discourage the recognizer from exploiting the TSA.
 
-![EERs for random and speaker-level TSAs]({% link assets/spk-level-eers.png %})
+<img src="./assets/imgs/spk-level-eers.png" width="400px">
+
+## Conclusion
 
 New approaches are required to improve the evaluation's robustness to the TSA.
 For example, training the recognizer on an open-set setting, where there is no fixed number of speakers, could prevent it from leveraging the TSA for identifying training speakers.
 [Self-supervised approaches](https://arxiv.org/abs/2304.12210) like contrastive learning or self-distillation could be interesting in this regard.
 
+Until these are developed, adversarial learning is effective for certain TSAs.
 You can run the target classifier in [SpAnE](https://github.com/carlosfranzreb/spane), either only for analysis or with adversarial learning.
