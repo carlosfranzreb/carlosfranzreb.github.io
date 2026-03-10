@@ -47,8 +47,10 @@ Our approach with adversarial learning is not able to force the recognizer to ig
 Increasing the size and weight of the target classifier, to make it more foolproof, does not solve this issue.
 The mutual information between the two tasks is too strong; an adversarial approach is not enough to discourage the recognizer from exploiting the TSA.
 
-![EERs for random and speaker-level TSAs]({{ '/assets/spk-level-eers.jpg' | relative_url }})
+![EERs for random and speaker-level TSAs](https://carlosfranzreb.github.io/assets/spk-level-eers.png)
 
 New approaches are required to improve the evaluation's robustness to the TSA.
 For example, training the recognizer on an open-set setting, where there is no fixed number of speakers, could prevent it from leveraging the TSA for identifying training speakers.
 [Self-supervised approaches](https://arxiv.org/abs/2304.12210) like contrastive learning or self-distillation could be interesting in this regard.
+
+You can run the target classifier in [SpAnE](https://github.com/carlosfranzreb/spane), either only for analysis or with adversarial learning.
