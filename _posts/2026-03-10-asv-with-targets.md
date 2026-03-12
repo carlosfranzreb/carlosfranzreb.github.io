@@ -44,6 +44,8 @@ This TSA is more challenging than the same-gender TSA, because the link between 
 For the same-gender TSA, each source's utterances were anonymized with different targets; for the speaker-level TSA, they are all anonymized with the same target.
 The recognizer can improve its identification accuracy on the seen speakers of the training set much more when considering the targets selected by the speaker-level TSA.
 Our approach with adversarial learning is not able to force the recognizer to ignore targets, as you can see in the table below.
+Only for the weaker anonymizers (kNN-VC and to a lesser degree the (3-16) config of private kNN-VC) does adversarial learning improve the EER.
+The error rates for the target speakers are still much higher with adversarial learning, but they do not translate in better EERs, highlighting one of the main challenges of adversarial learning: the recognizer is trying to fool the target classifier, while still leveraging target information to identify the source speakers.
 Increasing the size and weight of the target classifier, to make it more foolproof, does not solve this issue.
 The mutual information between the two tasks is too strong; an adversarial approach is not enough to discourage the recognizer from exploiting the TSA.
 
