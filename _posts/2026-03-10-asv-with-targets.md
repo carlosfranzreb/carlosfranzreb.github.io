@@ -4,7 +4,7 @@ date: 2026-03-10
 layout: post
 ---
 
-This study investigates why the privacy evaluation is unreliable in some cases.
+This study investigates why the privacy evaluation behaves erratically when a same-gender target selection algorithm is used, and improves its robustness with a larger recognizer and adversarial learning.
 
 ## Links
 
