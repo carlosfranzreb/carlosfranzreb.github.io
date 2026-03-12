@@ -1,5 +1,5 @@
 ---
-title: "Improving the Speaker Anonymization Evaluation's Robustness to Target Speakers with Adversarial Learning"
+title: "Privacy Evaluation with Adversarial Learning"
 date: 2026-03-10
 layout: post
 ---
