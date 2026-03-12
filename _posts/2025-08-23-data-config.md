@@ -16,8 +16,14 @@ This study investigates how the configuration of the Librispeech data used to ev
 The **evaluation's reliability** is determined by the evaluation dataset.
 Our results suggest that using 20 enrollment utterances per speaker is enough to characterize them; using more does not improve the attack further.
 Contrary to prior experiments, our results suggest that adding more speakers to the evaluation does not make it more challenging.
-The similarity among speakers is more important than the amount
+The similarity among speakers is more important than the amount.
 Experiments with other datasets should shed more light on this topic.
+
+Another interesting outcome of this study is the low EER achieved by speech-to-text-to-speech (STT-TTS).
+In principle, this anonymizer is perfect, as all speaker information is lost in the transcription.
+Its EERs are much lower than we expected (~35%), implying that speakers can be identified through their transcribed speech.
+
+*[EDIT] I investigate this further in [this paper](https://carlosfranzreb.github.io/librispeech_privacy.html)*
 
 Regarding the **evaluation runtime**, we look at different strategies for reducing the size of the training data.
 Anonymizing the training data and training the speaker recognizer with it takes up most of the evaluation runtime (more than 90% usually).
