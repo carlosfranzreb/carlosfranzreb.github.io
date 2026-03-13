@@ -30,7 +30,7 @@ spkanon/
   venv/
   logs/
   checkpoints/
-  spkanon_eval/
+  spane/
     spkanon_eval/
     tests/
     spkanon_models
@@ -52,7 +52,7 @@ bash spane/build/framework.sh
 
 ## Installing the anonymizer
 
-The anonymizers are implemented in a separate repository, called [spkanon_models](https://github.com/carlosfranzreb/private_spkanon_models).
+The anonymizers are implemented in a separate repository, called [spkanon_models](https://github.com/carlosfranzreb/spkanon_models).
 It should be installed inside SpAnE, for the framework to access the models.
 If you have not moved after running the previous snippet, the following snippet installs it in the correct place.
 
